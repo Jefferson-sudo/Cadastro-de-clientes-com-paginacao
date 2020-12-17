@@ -1,4 +1,3 @@
-
 <div class="base-home">
     <h1 class="titulo"><span class="cor">Lista de</span> contatos</h1>
     <div class="base-lista">

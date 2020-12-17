@@ -1,3 +1,4 @@
+		
 <div class="base-home">
     <h1 class="titulo"><span class="cor">SEJA</span> BEM VINDO</h1>
     <div class="base-colunas">	
@@ -21,4 +22,4 @@
             <span><b>Excluir</b> contatos</span>
         </a>
     </div>	
-</div>	
+</div>

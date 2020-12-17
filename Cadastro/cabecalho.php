@@ -1,3 +1,4 @@
+
 <div class="conteudo">	
     <div class="base-central">	
         <div class="base-topo">
@@ -6,6 +7,6 @@
                 <form action="">
                     <input type="text" placeholder="Pesquisa">
                     <input type="submit" value="" class="but">
-                </form>				
+                </form>	
             </div>
-        </div>
+        </div>    

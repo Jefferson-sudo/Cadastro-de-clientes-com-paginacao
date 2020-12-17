@@ -1,10 +1,7 @@
 <nav class="menu">
     <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="frm_cadastro.html">Cadastrar novo</a></li>
-        <li><a href="lst_contatos.html">Lista de contatos</a></li>
-        <li><a href="frm_cadastro.html">Editar</a></li>
-        <li><a href="frm_cadastro.html">Exluir</a></li>
+        <li><a href="index.php?link=1">Home</a></li>
+        <li><a href="index.php?link=2">Cadastrar novo</a></li>
+        <li><a href="index.php?link=3">Lista de contatos</a></li>
     </ul>
-</nav>	
-
+</nav>
