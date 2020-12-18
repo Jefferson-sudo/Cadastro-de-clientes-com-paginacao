@@ -1,3 +1,7 @@
+<?php
+$clientes = queryData("cliente");
+?>
+
 <div class="base-home">
     <h1 class="titulo"><span class="cor">Lista de</span> contatos</h1>
     <div class="base-lista">
@@ -12,65 +16,32 @@
                         <th width="20%" colspan="2" align="center">Alterar</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr class="cor1">
-                        <td>Jefferson Mateus</td>
-                        <td>mjailton @gmail.com</td>
-                        <td>335550221</td>
-                        <td align="center">
-                            <a href="index.php?link=2" class="btn">Editar</a>
-                        </td>
-                        <td align="center">
-                            <a href="index.php?link=2" class="btn excluir">excluir</a>
-                        </td>
-                    </tr>	
-                <tbody>
-                    <tr class="cor2">
-                        <td>Manoel Jailton Nascimento</td>
-                        <td>mjailton @gmail.com</td>
-                        <td>335550221</td>
-                        <td align="center">
-                            <a href="index.php?link=2" class="btn">Editar</a>
-                        </td>
-                        <td align="center">
-                            <a href="index.php?link=2" class="btn excluir">excluir</a>
-                        </td>
-                    </tr>	
-                    <tr class="cor1">
-                        <td>Manoel Jailton Nascimento</td>
-                        <td>mjailton @gmail.com</td>
-                        <td>335550221</td>
-                        <td align="center">
-                            <a href="index.php?link=2" class="btn">Editar</a>
-                        </td>
-                        <td align="center">
-                            <a href="index.php?link=2" class="btn excluir">excluir</a>
-                        </td>
-                    </tr>		
-                    <tr class="cor2">
-                        <td>Manoel Jailton Nascimento</td>
-                        <td>mjailton @gmail.com</td>
-                        <td>335550221</td>
-                        <td align="center">
-                            <a href="index.php?link=2" class="btn">Editar</a>
-                        </td>
-                        <td align="center">
-                            <a href="index.php?link=2" class="btn excluir">excluir</a>
-                        </td>
-                    </tr>
-                    <tr class="cor1">
-                        <td>Manoel Jailton Nascimento</td>
-                        <td>mjailton @gmail.com</td>
-                        <td>335550221</td>
-                        <td align="center">
-                            <a href="index.php?link=2" class="btn">Editar</a>
-                        </td>
-                        <td align="center">
-                            <a href="index.php?link=2" class="btn excluir">excluir</a>
-                        </td>
-                    </tr>										  
-                </tbody>
+
+                <?php
+                if ($clientes) {
+                    foreach ($clientes as $cliente) {
+                        ?>
+                        <tbody>
+                            <tr class="cor1">
+                                <td><?php echo $cliente["cliente"] ?></td>
+                                <td><?php echo $cliente["email"] ?></td>
+                                <td><?php echo $cliente["fone"] ?></td>
+                                <td align="center">
+                                    <a href="index.php?link=2" class="btn">Editar</a>
+                                </td>
+                                <td align="center">
+                                    <a href="index.php?link=2" class="btn excluir">excluir</a>
+                                </td>
+                            </tr>
+                            <?php
+                        }
+                    }else {
+                        echo "Nenhum valor encontrado! Isso pode acontecer por que a conexão com o banco de dados falhou"
+                        . " ou simplesmente por que não existe nenhum dado cadastrado !";
+                    }
+                    ?>
             </table>
+
         </div>	
 
         <ul class="paginacao">
