@@ -1,5 +1,6 @@
 <?php
 require ("config/config.php");
+require ("config/crud.php");
 ?>
 
 <html>
@@ -11,6 +12,7 @@ require ("config/config.php");
     </head>
 
     <body>
+
         <?php include 'cabecalho.php'; ?>
 
         <?php include 'menu.php'; ?>

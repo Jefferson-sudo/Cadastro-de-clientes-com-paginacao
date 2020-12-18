@@ -24,6 +24,7 @@ function runsql($sql) {
 //Funcoa para fazer busca SELECT
 function queryData($tabela, $condicao = NULL, $campos = "*") {
     $sql = "SELECT {$campos} FROM {$tabela} {$condicao}";
+
     $qry = runsql($sql);
 
     if (!mysqli_num_rows($qry)) {
