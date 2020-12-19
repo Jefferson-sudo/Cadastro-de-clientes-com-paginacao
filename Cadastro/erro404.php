@@ -1,1 +1,1 @@
-<h1>Infelizmente deu merda !!</h1>
+<h1>Erro 404</h1>
