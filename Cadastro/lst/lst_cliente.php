@@ -13,6 +13,7 @@ $clientes = queryData("cliente");
                         <th width="25%" align="left">Nome</th>
                         <th width="25%" align="left">Email</th>
                         <th width="10%" align="left">Telefone</th>
+                        <th width="10%" align="left">Cidade</th>
                         <th width="20%" colspan="2" align="center">Alterar</th>
                     </tr>
                 </thead>
@@ -26,6 +27,8 @@ $clientes = queryData("cliente");
                                 <td><?php echo $cliente["cliente"] ?></td>
                                 <td><?php echo $cliente["email"] ?></td>
                                 <td><?php echo $cliente["fone"] ?></td>
+                                <td><?php echo $cliente["cidade"] ?></td>
+
                                 <td align="center">
                                     <a href="index.php?link=2" class="btn">Editar</a>
                                 </td>
@@ -35,7 +38,7 @@ $clientes = queryData("cliente");
                             </tr>
                             <?php
                         }
-                    }else {
+                    } else {
                         echo "Nenhum valor encontrado! Isso pode acontecer por que a conexão com o banco de dados falhou"
                         . " ou simplesmente por que não existe nenhum dado cadastrado !";
                     }
