@@ -2,7 +2,7 @@
 <div class="base-home">
     <h1 class="titulo"><span class="cor">SEJA</span> BEM VINDO</h1>
     <div class="base-colunas">	
-        <a href="index.php?link=2" class="col">
+        <a href="index.php?link=2&acao=Inserir" class="col">
             <i class="icone ico1"></i>
             <span><b>NOVO</b> CADASTRO</span>
         </a>	

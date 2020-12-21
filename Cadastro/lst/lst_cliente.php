@@ -30,10 +30,10 @@ $clientes = queryData("cliente");
                                 <td><?php echo $cliente["cidade"] ?></td>
 
                                 <td align="center">
-                                    <a href="index.php?link=2" class="btn">Editar</a>
+                                    <a href="<?php echo "index.php?link=2&acao=Editar&id=" . $cliente["id_cliente"] ?>" class="btn">Editar</a>
                                 </td>
                                 <td align="center">
-                                    <a href="index.php?link=2" class="btn excluir">excluir</a>
+                                    <a href="<?php echo "index.php?link=2&acao=Excluir&id=" . $cliente["id_cliente"] ?>" class="btn excluir">excluir</a>
                                 </td>
                             </tr>
                             <?php

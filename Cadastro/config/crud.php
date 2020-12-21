@@ -41,10 +41,10 @@ function queryData($tabela, $condicao = NULL, $campos = "*") {
 function insertData($tabela, array $dados, $id = false) {
     openConection();
 
-    $campos = implode(", ", array_keys($dados)); //Pega as chaves do array 
+    $campos = "`". implode("`,`", array_keys($dados))."`"; //Pega as chaves do array 
     $valores = "'" . implode("','", $dados) . "'"; //Pega os valores do array
     $sql = "INSERT INTO `$tabela`({$campos}) VALUES ({$valores})";
-
+   
     $qry = runsql($sql);
     return $qry;
 }
@@ -57,17 +57,17 @@ function updateData($tabela, array $dados, $condicao) {
     foreach ($dados as $chave => $valor) {//Varrer os dados
         $campos[] = "{$chave}` = '{$valor}' ";
     }
-    $campos = implode(", ", $campos);
+    $campos =  implode(",`", $campos);
     $sql = "UPDATE `$tabela` SET `{$campos} WHERE `$tabela`.`{$condicao}  ";
-    runsql($sql);
+    $qry = runsql($sql);
 
-    return $sql;
+    return $qry;
 }
 
 //Deletar dados
 function deleteData($tabela, $condicao) {
     openConection();
-    $sql = "DELETE  FROM  `$tabela` WHERE $condicao";
+    $sql = "DELETE  FROM  `$tabela` WHERE `$condicao";
     $qry = runsql($sql);
     return $qry;
 }
