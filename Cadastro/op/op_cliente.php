@@ -4,7 +4,7 @@ require ("../config/config.php");
 require ("../config/crud.php");
 
 $id_cliente = isset($_POST["id"]) ? $_POST["id"] : NULL;
-$acao = isset($_POST["acao"]) ? $_POST["acao"] : "Inserir";
+$acao = isset($_POST["acao"]) ? $_POST["acao"] : "Cadastrar";
 
 
 $txt_cliente = $_POST["txt_cliente"];
@@ -28,7 +28,7 @@ $dados = array(
 );
 
 
-if($acao == "Inserir"){
+if($acao == "Cadastrar"){
   $qry= insertData("cliente", $dados);
   var_dump($qry);
  if($qry){

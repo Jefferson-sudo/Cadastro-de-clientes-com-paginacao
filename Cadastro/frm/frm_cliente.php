@@ -5,7 +5,7 @@ $id = isset($_GET["id"]) ? $_GET["id"] : NULL;
 if ($id) {
     $cliente = queryData("`cliente` WHERE `id_cliente` = $id");
 }
-$id_cliente  = isset($cliente[1][0]) ? $cliente[0]["id_cliente"] : NULL;
+$id_cliente  = isset($cliente[0][0]) ? $cliente[0]["id_cliente"] : NULL;
 $nome        = isset($cliente[0]["cliente"]) ? $cliente[0]["cliente"] : NULL;
 $email       = isset($cliente[0]["email"]) ? $cliente[0]["email"] : NULL;
 $endereco    = isset($cliente[0]["endereco"]) ? $cliente[0]["endereco"] : NULL;
@@ -46,7 +46,7 @@ $cidade      = isset($cliente[0]["cidade"])?$cliente[0]["cidade"]: NULL ;
             </div>	
 
             <div class="col">
-                <label>CPF</label>
+                <label>CPF/CNPJ</label>
                 <input name="txt_cpf" value="<?php echo $cpf ; ?>" type="text" placeholder="Insira seu CPF">
             </div>
 
