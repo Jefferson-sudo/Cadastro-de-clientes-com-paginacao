@@ -12,12 +12,13 @@
             <span><b>lista de</b> contatos</span>
         </a>
 
-        <a href="frm_cadastro.html" class="col">
+        <a href="<?php echo "index.php?link=4&acao=Editar";?>" class="col">
             <i class="icone ico3"></i>
             <span><b>Editar</b> contatos</span>
+
         </a>
 
-        <a href="frm_cadastro.html" class="col">
+        <a href="<?php echo "index.php?link=4&acao=Excluir";?>" class="col">
             <i class="icone ico4"></i>
             <span><b>Excluir</b> contatos</span>
         </a>

@@ -22,6 +22,7 @@ require ("config/crud.php");
         $pag[1] = "home.php";
         $pag[2] = "frm/frm_cliente.php";
         $pag[3] = "lst/lst_cliente.php";
+        $pag[4] = "lst/lst_editar_excluir.php";
 
         if (!empty($link)) {
             if (file_exists($pag[$link])) {
