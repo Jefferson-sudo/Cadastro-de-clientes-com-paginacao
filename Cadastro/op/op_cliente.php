@@ -30,7 +30,6 @@ $dados = array(
 
 if($acao == "Cadastrar"){
   $qry= insertData("cliente", $dados);
-  var_dump($qry);
  if($qry){
   $url = URL_BASE. "index.php?link=3";
  }else{
