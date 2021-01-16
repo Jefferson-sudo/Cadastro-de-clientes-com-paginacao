@@ -36,7 +36,20 @@ function queryData($tabela, $condicao = NULL, $campos = "*") {
         return $dados;
     }
 }
+function selecionar($comandosql) {
+    $sql = $comandosql;
+    return $sql;
+    /*$qry = runsql($sql);
 
+    if (!mysqli_num_rows($qry)) {
+        return FALSE;
+    } else {
+        while ($linha = @mysqli_fetch_array($qry)) {
+            $dados[] = $linha;
+        }
+        return $dados;
+    }*/
+}
 //Funcao para insercao de dados
 function insertData($tabela, array $dados, $id = false) {
     openConection();

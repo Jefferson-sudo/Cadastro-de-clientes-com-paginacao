@@ -1,11 +1,32 @@
 <?php
 $clientes = queryData("cliente");
+$pesq   = isset($_POST['pesq'])? $_POST['pesq']:NULL;
+$campo = isset($_POST['campo'])? $_POST['campo']:NULL;
+if($pesq){
+    $sql = "SELECT * FROM `cliente` WHERE `$campo` like%$pesq%";
+}else{
+    $sql = "SELECT * FROM `cliente`";
+}
+
+$lista = selecionar($sql);
+print_r($lista);
 ?>
 
 <div class="base-home">
     <h1 class="titulo"><span class="cor">Lista de</span> contatos</h1>
     <div class="base-lista">
         <span class="qtde"><b>18</b> clientes cadastrados</span>
+        <form action="inde.php?link=3"mthod="post">
+           Pesquisa:<input type="text" name="pesq" placeholder="Valor" with="50" >
+           
+           Campos: <select name="campo">
+                <option value="cliente">Nome </option>
+                <option value="email" selected>Email</option>
+                <option value="cpf">CPF </option>
+            </select>
+            <input type="submit" value="buscar">
+        </form> 
+        </br>
         <div class="tabela">	
             <table width="100%" border="0" cellspacing="0" cellpadding="0">
                 <thead>
