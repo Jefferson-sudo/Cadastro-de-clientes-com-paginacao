@@ -14,6 +14,7 @@ $total = allrows($sql);
 $lpp = 5;
 
 $paginas = ceil($total / $lpp);
+
 echo $paginas;
 ?>
 
