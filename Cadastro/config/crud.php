@@ -84,3 +84,8 @@ function deleteData($tabela, $condicao) {
     $qry = runsql($sql);
     return $qry;
 }
+
+function allrows($sql){
+    $qry = runsql($sql);
+    return mysqli_num_rows($qry);
+}
