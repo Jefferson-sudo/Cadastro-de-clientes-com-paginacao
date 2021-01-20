@@ -1,7 +1,11 @@
 <?php
+$pg       = isset($_GET['pg'])? $_GET['pg']: 0;
+$pesq     = isset($_POST['pesq']) ? $_POST['pesq'] : NULL;
+$campo    = isset($_POST['campo']) ? $_POST['campo'] : NULL;
+
 $clientes = queryData("cliente");
-$pesq = isset($_POST['pesq']) ? $_POST['pesq'] : NULL;
-$campo = isset($_POST['campo']) ? $_POST['campo'] : NULL;
+
+
 if ($pesq) {
     $sql = "SELECT * FROM `cliente` WHERE `$campo` like%$pesq%";
 } else {
@@ -11,11 +15,10 @@ if ($pesq) {
 $cliente = selecionar($sql);
 $total = allrows($sql);
 
-$lpp = 5;
+$lpp = 5;                               //Linhas por paginas
+$paginas = ceil($total / $lpp);         //Numero de paginas
+$inicio = $pg * $lpp;                   //Pega o inicio da pagina
 
-$paginas = ceil($total / $lpp);
-
-echo $paginas;
 ?>
 
 <div class="base-home">
@@ -46,6 +49,7 @@ echo $paginas;
         <table width="100%" border="0" cellspacing="0" cellpadding="0">
             <thead>
                 <tr>
+                    <th width="5%" align="left">ID</th>
                     <th width="25%" align="left">Nome</th>
                     <th width="25%" align="left">Email</th>
                     <th width="10%" align="left">Telefone</th>
@@ -55,11 +59,15 @@ echo $paginas;
             </thead>
 
             <?php
-            if ($clientes) {
-                foreach ($clientes as $cliente) {
+           
+            $i = 0;
+            
+            $clientes = selecionar($sql ." LIMIT $inicio, $lpp");
+            foreach ($clientes as $cliente) {
                     ?>
                     <tbody>
                         <tr class="cor1">
+                            <td><?php echo $cliente["id_cliente"] ?></td>
                             <td><?php echo $cliente["cliente"] ?></td>
                             <td><?php echo $cliente["email"] ?></td>
                             <td><?php echo $cliente["fone"] ?></td>
@@ -74,10 +82,7 @@ echo $paginas;
                         </tr>
                         <?php
                     }
-                } else {
-                    echo "Nenhum valor encontrado! Isso pode acontecer por que a conexão com o banco de dados falhou"
-                    . " ou simplesmente por que não existe nenhum dado cadastrado !";
-                }
+
                 ?>
         </table>
 
