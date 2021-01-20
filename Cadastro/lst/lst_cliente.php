@@ -90,8 +90,8 @@ $inicio = $pg * $lpp;                   //Pega o inicio da pagina
 
     <ul class="paginacao">
         <li><a href="#" class="ant">Anterior</a></li>
-        <li class="ativo">1</li>
-        <li><a href="#">2</a></li>
+        <li class="ativo"><a href="<?php echo "index.php?link=3&pg=0"?>">1</a></li>
+        <li><a href="<?php echo "index.php?link=3&pg=1"?>">2</a></li>
         <li><a href="#">3</a></li>
         <li><a href="#">4</a></li>
         <li><a href="#">5</a></li>
