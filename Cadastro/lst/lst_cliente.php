@@ -16,14 +16,14 @@ $cliente = selecionar($sql);
 $total = allrows($sql);
 
 $lpp = 5;                               //Linhas por paginas
-$paginas = ceil($total / $lpp-1);         //Numero de paginas
-$total_paginas = ceil($total / $lpp);         //Numero de paginas
+$paginas = ceil($total / $lpp-1);       //Numero de paginas
+$total_paginas = ceil($total / $lpp);   //Numero de paginas
 $inicio = $pg * $lpp;                   //Pega o inicio da pagina
 
 
 //Trabalhando as paginas
 
-if($pg == 0){
+if($pg == 0){//Se estiver na primeira pagina
     $mais = $pg +1;
     $imprimePaginacao = ""
             ."<li><a href='index.php?link=3&pg=$mais' class='prox'>Próximo </a></li>"
@@ -35,7 +35,7 @@ if($pg == 0){
             . "<li class='ativo'><a href='index.php?link=3&pg=6''>7</a></li>"
             . "<li class='ativo'><a href='index.php?link=3&pg=7''>8</a></li>"
             ."<li><a href='index.php?link=3&pg=$paginas'> Ultimo</a></li>";
-}else if($pg == $paginas){
+}else if($pg == $paginas){//Se estiver na ultima pagina
     $menos = $pg -1;
     $imprimePaginacao = ""
             . "<li><a href='index.php?link=3&pg=$menos' class='ant'>Anterior</a></li>"
@@ -47,7 +47,7 @@ if($pg == 0){
             . "<li class='ativo'><a href='index.php?link=3&pg=5''>6</a></li>"
             . "<li class='ativo'><a href='index.php?link=3&pg=6''>7</a></li>"
             . "<li><a href='index.php?link=3&pg=0'>Primeira</a></li>";
-}else if($pg != 0 && $pg != $paginas){
+}else if($pg != 0 && $pg != $paginas){//Se nao estiver na ultima e nem na primeira pagina
     $mais = $pg +1;
     $menos = $pg -1;
         
@@ -107,9 +107,12 @@ if($pg == 0){
            
             $i = 0;
             
-            $clientes = selecionar($sql ." LIMIT $inicio, $lpp");
+            $clientes = selecionar($sql ." LIMIT $inicio, $lpp");//Faz a busca no banco de dados colocando um limite de apenas 5 resultados por vez
+            
             if($clientes){
-            echo $pg + 1;
+                
+                echo $pg + 1;//Mostra qual pagina o usuario esta
+            
             foreach ($clientes as $cliente) {
                     ?>
                     <tbody>
@@ -130,7 +133,7 @@ if($pg == 0){
                         <?php
                     }
             }else{
-                echo"";
+                echo"Empty page";//Se a a busca retornar vazio mostra somente uma string vazia ao inves de mostrar erros
             }
                 ?>
         </table>
@@ -138,7 +141,7 @@ if($pg == 0){
     </div>
    
     <ul class="paginacao">
-    <?php echo $imprimePaginacao; ?>
+    <?php echo $imprimePaginacao; //Imprime as opçoes para mudar mudar as pagina?>
     </ul>
     </div>
 </div>
