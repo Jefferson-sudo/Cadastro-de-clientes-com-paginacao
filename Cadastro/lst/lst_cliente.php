@@ -16,9 +16,54 @@ $cliente = selecionar($sql);
 $total = allrows($sql);
 
 $lpp = 5;                               //Linhas por paginas
-$paginas = ceil($total / $lpp);         //Numero de paginas
+$paginas = ceil($total / $lpp-1);         //Numero de paginas
+$total_paginas = ceil($total / $lpp);         //Numero de paginas
 $inicio = $pg * $lpp;                   //Pega o inicio da pagina
 
+
+//Trabalhando as paginas
+
+if($pg == 0){
+    $mais = $pg +1;
+    $imprimePaginacao = ""
+            ."<li><a href='index.php?link=3&pg=$mais' class='prox'>Próximo </a></li>"
+            . "<li class='ativo'><a href='index.php?link=3&pg=1''>2</a></li>"
+            . "<li class='ativo'><a href='index.php?link=3&pg=2''>3</a></li>"
+            . "<li class='ativo'><a href='index.php?link=3&pg=3''>4</a></li>"
+            . "<li class='ativo'><a href='index.php?link=3&pg=4''>5</a></li>"
+            . "<li class='ativo'><a href='index.php?link=3&pg=5''>6</a></li>"
+            . "<li class='ativo'><a href='index.php?link=3&pg=6''>7</a></li>"
+            . "<li class='ativo'><a href='index.php?link=3&pg=7''>8</a></li>"
+            ."<li><a href='index.php?link=3&pg=$paginas'> Ultimo</a></li>";
+}else if($pg == $paginas){
+    $menos = $pg -1;
+    $imprimePaginacao = ""
+            . "<li><a href='index.php?link=3&pg=$menos' class='ant'>Anterior</a></li>"
+            . "<li class='ativo'><a href='index.php?link=3&pg=0''>1</a></li>"
+            . "<li class='ativo'><a href='index.php?link=3&pg=1''>2</a></li>"
+            . "<li class='ativo'><a href='index.php?link=3&pg=2''>3</a></li>"
+            . "<li class='ativo'><a href='index.php?link=3&pg=3''>4</a></li>"
+            . "<li class='ativo'><a href='index.php?link=3&pg=4''>5</a></li>"
+            . "<li class='ativo'><a href='index.php?link=3&pg=5''>6</a></li>"
+            . "<li class='ativo'><a href='index.php?link=3&pg=6''>7</a></li>"
+            . "<li><a href='index.php?link=3&pg=0'>Primeira</a></li>";
+}else if($pg != 0 && $pg != $paginas){
+    $mais = $pg +1;
+    $menos = $pg -1;
+        
+    $imprimePaginacao = ""
+            . "<li><a href='index.php?link=3&pg=$menos' class='ant'>Anterior</a></li>"
+            . "<li class='ativo'><a href='index.php?link=3&pg=0''>1</a></li>"
+            . "<li class='ativo'><a href='index.php?link=3&pg=1''>2</a></li>"
+            . "<li class='ativo'><a href='index.php?link=3&pg=2''>3</a></li>"
+            . "<li class='ativo'><a href='index.php?link=3&pg=3''>4</a></li>"
+            . "<li class='ativo'><a href='index.php?link=3&pg=4''>5</a></li>"
+            . "<li class='ativo'><a href='index.php?link=3&pg=5''>6</a></li>"
+            . "<li class='ativo'><a href='index.php?link=3&pg=6''>7</a></li>"
+            . "<li class='ativo'><a href='index.php?link=3&pg=7''>8</a></li>"
+            ."<li><a href='index.php?link=3&pg=$mais' class='prox'>Próximo </a></li>";
+    
+}
 ?>
 
 <div class="base-home">
@@ -63,6 +108,8 @@ $inicio = $pg * $lpp;                   //Pega o inicio da pagina
             $i = 0;
             
             $clientes = selecionar($sql ." LIMIT $inicio, $lpp");
+            if($clientes){
+            echo $pg + 1;
             foreach ($clientes as $cliente) {
                     ?>
                     <tbody>
@@ -82,21 +129,16 @@ $inicio = $pg * $lpp;                   //Pega o inicio da pagina
                         </tr>
                         <?php
                     }
-
+            }else{
+                echo"";
+            }
                 ?>
         </table>
 
-    </div>	
-
+    </div>
+   
     <ul class="paginacao">
-        <li><a href="#" class="ant">Anterior</a></li>
-        <li class="ativo"><a href="<?php echo "index.php?link=3&pg=0"?>">1</a></li>
-        <li><a href="<?php echo "index.php?link=3&pg=1"?>">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">5</a></li>
-        <li><a href="#">...</a></li>
-        <li><a href="#" class="prox">Próximo</a></li>
+    <?php echo $imprimePaginacao; ?>
     </ul>
-</div>	
-</div>	
+    </div>
+</div>
