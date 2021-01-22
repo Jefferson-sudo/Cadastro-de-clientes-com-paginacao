@@ -113,7 +113,7 @@ if($pg == 0){//Se estiver na primeira pagina
                 
                 echo $pg + 1;//Mostra qual pagina o usuario esta
             
-            foreach ($clientes as $cliente) {
+            foreach ($clientes as $cliente) { //Listando os usuarios
                     ?>
                     <tbody>
                         <tr class="cor1">
