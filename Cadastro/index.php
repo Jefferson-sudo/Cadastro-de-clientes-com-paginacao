@@ -12,11 +12,11 @@ require ("config/crud.php");
     </head>
 
     <body>
-
+        <!--Mostra o cabecalho-->
         <?php include 'cabecalho.php'; ?>
-
+        <!--Mostra o Menu-->   
         <?php include 'menu.php'; ?>
-
+        <!--Pega o link-->
         <?php
         @$link = $_GET["link"];
         $pag[1] = "home.php";
@@ -27,14 +27,14 @@ require ("config/crud.php");
         if (!empty($link)) {
             if (file_exists($pag[$link])) {
                 include $pag[$link];
-            } else {
+            } else { //Se nao tiver link
                 include'erro404.php';
             }
         } else {
             include'home.php';
         }
         ?>
-
+        <!--Mostra o rodape-->
         <?php include'rodape.php' ?>	</div>		
 </div>		
 </body>
