@@ -21,6 +21,7 @@ $clientes = queryData("cliente");
 
                 <?php
                 if ($clientes) {
+                    //Se a acao enviada for Editar
                     if ($acao == "Editar") {
                         foreach ($clientes as $cliente) {
                             ?>
@@ -38,7 +39,7 @@ $clientes = queryData("cliente");
                                 }
                             }
 
-                            //Se a acao enviada for igual a exlcuir
+                            //Se a acao enviada for igual a excluir
                             if ($acao == "Excluir") {
                                 foreach ($clientes as $cliente) {
                                     ?>
