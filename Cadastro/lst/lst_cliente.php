@@ -29,7 +29,7 @@ if($paginas <= 0){
     $ultimo = $paginas;
 }
 
-if($pg == 0){//Se estiver na primeira pagina
+if($pg == 0 | $paginas < 0){//Se estiver na primeira pagina e pagina nao for menor que 0
     $mais = $pg +1;
     $imprimePaginacao = ""
             ."<li><a href='index.php?link=3&pg=$mais' class='prox'>Próximo </a></li>"
@@ -70,7 +70,9 @@ if($pg == 0){//Se estiver na primeira pagina
             . "<li><a href='index.php?link=3&pg=$mais' class='prox'>Próximo </a></li>";
 
     
-} else if($paginas <= 0 || $pg < 0){
+}
+
+if($paginas <= 0){
     $imprimePaginacao = "Página 1 de 1";
 }
 ?>
