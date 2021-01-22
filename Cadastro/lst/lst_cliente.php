@@ -22,6 +22,12 @@ $inicio = $pg * $lpp;                   //Pega o inicio da pagina
 
 
 //Trabalhando as paginas
+//Verificar se a pagina e menor igual a 0. Se for ultimo o vai ser 0. Se nao, ultimo vai ser o numero de  paginas
+if($paginas <= 0){
+    $ultimo = $total_paginas;
+}else{  
+    $ultimo = $paginas;
+}
 
 if($pg == 0){//Se estiver na primeira pagina
     $mais = $pg +1;
@@ -34,7 +40,7 @@ if($pg == 0){//Se estiver na primeira pagina
             . "<li class='ativo'><a href='index.php?link=3&pg=5''>6</a></li>"
             . "<li class='ativo'><a href='index.php?link=3&pg=6''>7</a></li>"
             . "<li class='ativo'><a href='index.php?link=3&pg=7''>8</a></li>"
-            ."<li><a href='index.php?link=3&pg=$paginas'> Ultimo</a></li>";
+            ."<li><a href='index.php?link=3&pg=$ultimo'> Ultimo</a></li>";
 }else if($pg == $paginas){//Se estiver na ultima pagina
     $menos = $pg -1;
     $imprimePaginacao = ""
@@ -53,16 +59,19 @@ if($pg == 0){//Se estiver na primeira pagina
         
     $imprimePaginacao = ""
             . "<li><a href='index.php?link=3&pg=$menos' class='ant'>Anterior</a></li>"
+            . "<li class='ativo'><a href='index.php?link=3&pg=0'>Primeira</a></li>"
             . "<li class='ativo'><a href='index.php?link=3&pg=0''>1</a></li>"
             . "<li class='ativo'><a href='index.php?link=3&pg=1''>2</a></li>"
             . "<li class='ativo'><a href='index.php?link=3&pg=2''>3</a></li>"
             . "<li class='ativo'><a href='index.php?link=3&pg=3''>4</a></li>"
             . "<li class='ativo'><a href='index.php?link=3&pg=4''>5</a></li>"
             . "<li class='ativo'><a href='index.php?link=3&pg=5''>6</a></li>"
-            . "<li class='ativo'><a href='index.php?link=3&pg=6''>7</a></li>"
-            . "<li class='ativo'><a href='index.php?link=3&pg=7''>8</a></li>"
-            ."<li><a href='index.php?link=3&pg=$mais' class='prox'>Próximo </a></li>";
+            . "<li class='ativo'><a href='index.php?link=3&pg=$ultimo'> Ultimo</a></li>" 
+            . "<li><a href='index.php?link=3&pg=$mais' class='prox'>Próximo </a></li>";
+
     
+} else if($paginas <= 0 || $pg < 0){
+    $imprimePaginacao = "Página 1 de 1";
 }
 ?>
 
