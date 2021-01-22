@@ -41,7 +41,7 @@ function selecionar($comandosql) {
     $qry = runsql($sql);
 
     if (!mysqli_num_rows($qry)) {
-        return FALSE;
+        return false;
     } else {
         while ($linha = @mysqli_fetch_array($qry)) {
             $dados[] = $linha;
