@@ -38,7 +38,7 @@ if($paginas <= 0){
     //Imprimir opcoes de paginas
     for($i=0; $i<=$paginas; $i++){
         $aux = $i + 1;
-        if($pg == $i){//Testa se a o pg e igual a I para saber se voce esta tentando acessar a mesma pagina onde voce esta
+        if($pg == $i){//Testa se a o pg e igual a I para saber se voce esta tentando acessar a mesma pagina onde voce esta 
             $imprimePaginacao.="<li><a>$aux</a></li>";
         } else {
         $imprimePaginacao .= "<li class='ativo'><a href='index.php?link=3&pg=$i'>$aux</a></li>";
