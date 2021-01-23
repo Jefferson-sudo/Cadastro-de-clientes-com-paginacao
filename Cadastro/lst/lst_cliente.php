@@ -3,22 +3,21 @@ $pg       = isset($_GET['pg'])? $_GET['pg']: 0;
 $pesq     = isset($_POST['pesq']) ? $_POST['pesq'] : NULL;
 $campo    = isset($_POST['campo']) ? $_POST['campo'] : NULL;
 
-$clientes = queryData("cliente");
-
 
 if ($pesq) {
     $sql = "SELECT * FROM `cliente` WHERE `$campo` like%$pesq%";
 } else {
     $sql = "SELECT * FROM `cliente`";
 }
-
+$clientes = queryData("cliente");
 $cliente = selecionar($sql);
 $total = allrows($sql);
-
 $lpp = 5;                               //Linhas por paginas
 $paginas = ceil($total / $lpp-1);       //Numero de paginas
 $total_paginas = ceil($total / $lpp);   //Numero de paginas
 $inicio = $pg * $lpp;                   //Pega o inicio da pagina
+
+
 
 
 //Trabalhando as paginas
@@ -29,51 +28,59 @@ if($paginas <= 0){
     $ultimo = $paginas;
 }
 
-if($pg == 0 | $paginas < 0){//Se estiver na primeira pagina e pagina nao for menor que 0
+//Verifica se a pagina esta vazio
+if($paginas <= 0){
+    $imprimePaginacao = "Página 1 de 1";
+    
+}else if($pg == 0 | $paginas < 0){//Se estiver na primeira pagina e pagina nao for menor que 0
     $mais = $pg +1;
-    $imprimePaginacao = ""
-            ."<li><a href='index.php?link=3&pg=$mais' class='prox'>Próximo </a></li>"
-            . "<li class='ativo'><a href='index.php?link=3&pg=1''>2</a></li>"
-            . "<li class='ativo'><a href='index.php?link=3&pg=2''>3</a></li>"
-            . "<li class='ativo'><a href='index.php?link=3&pg=3''>4</a></li>"
-            . "<li class='ativo'><a href='index.php?link=3&pg=4''>5</a></li>"
-            . "<li class='ativo'><a href='index.php?link=3&pg=5''>6</a></li>"
-            . "<li class='ativo'><a href='index.php?link=3&pg=6''>7</a></li>"
-            . "<li class='ativo'><a href='index.php?link=3&pg=7''>8</a></li>"
-            ."<li><a href='index.php?link=3&pg=$ultimo'> Ultimo</a></li>";
-}else if($pg == $paginas){//Se estiver na ultima pagina
-    $menos = $pg -1;
-    $imprimePaginacao = ""
-            . "<li><a href='index.php?link=3&pg=$menos' class='ant'>Anterior</a></li>"
-            . "<li class='ativo'><a href='index.php?link=3&pg=0''>1</a></li>"
-            . "<li class='ativo'><a href='index.php?link=3&pg=1''>2</a></li>"
-            . "<li class='ativo'><a href='index.php?link=3&pg=2''>3</a></li>"
-            . "<li class='ativo'><a href='index.php?link=3&pg=3''>4</a></li>"
-            . "<li class='ativo'><a href='index.php?link=3&pg=4''>5</a></li>"
-            . "<li class='ativo'><a href='index.php?link=3&pg=5''>6</a></li>"
-            . "<li class='ativo'><a href='index.php?link=3&pg=6''>7</a></li>"
-            . "<li><a href='index.php?link=3&pg=0'>Primeira</a></li>";
+    $imprimePaginacao = "<li><a href='index.php?link=3&pg=$mais' class='prox'>Próxima</a></li>";
+    //Imprimir opcoes de paginas
+    for($i=0; $i<=$paginas; $i++){
+        $aux = $i + 1;
+        if($pg == $i){//Testa se a o pg e igual a I para saber se voce esta tentando acessar a mesma pagina onde voce esta
+            $imprimePaginacao.="<li><a>$aux</a></li>";
+        } else {
+        $imprimePaginacao .= "<li class='ativo'><a href='index.php?link=3&pg=$i'>$aux</a></li>";
+        }
+    }
+     $imprimePaginacao .="<li><a href='index.php?link=3&pg=$ultimo' class='ultimo'> Ultimo</a></li>";
+    
 }else if($pg != 0 && $pg != $paginas){//Se nao estiver na ultima e nem na primeira pagina
     $mais = $pg +1;
     $menos = $pg -1;
-        
     $imprimePaginacao = ""
-            . "<li><a href='index.php?link=3&pg=$menos' class='ant'>Anterior</a></li>"
-            . "<li class='ativo'><a href='index.php?link=3&pg=0'>Primeira</a></li>"
-            . "<li class='ativo'><a href='index.php?link=3&pg=0''>1</a></li>"
-            . "<li class='ativo'><a href='index.php?link=3&pg=1''>2</a></li>"
-            . "<li class='ativo'><a href='index.php?link=3&pg=2''>3</a></li>"
-            . "<li class='ativo'><a href='index.php?link=3&pg=3''>4</a></li>"
-            . "<li class='ativo'><a href='index.php?link=3&pg=4''>5</a></li>"
-            . "<li class='ativo'><a href='index.php?link=3&pg=5''>6</a></li>"
-            . "<li class='ativo'><a href='index.php?link=3&pg=$ultimo'> Ultimo</a></li>" 
-            . "<li><a href='index.php?link=3&pg=$mais' class='prox'>Próximo </a></li>";
+            ."<li><a href='index.php?link=3&pg=$menos' class='ant'></a></li>"
+            ."<li class='ativo'><a href='index.php?link=3&pg=0'>Primeira</a></li>";
+    //Imprimir opcoes de paginas
+   for($i=0; $i<=$paginas; $i++){
+        $aux = $i + 1;
+        if($pg == $i){//Testa se a o pg e igual a I para saber se voce esta tentando acessar a mesma pagina onde voce esta
+            $imprimePaginacao.="<li><a>$aux</a></li>";
+        } else {
+        $imprimePaginacao .= "<li class='ativo'><a href='index.php?link=3&pg=$i'>$aux</a></li>";
+        }
+    }
+    $imprimePaginacao .= ""
+        ."<li class='ativo'><a href='index.php?link=3&pg=$ultimo' class='ultimo'> Ultimo</a></li>" 
+        ."<li><a href='index.php?link=3&pg=$mais' class='prox'></a></li>";
 
     
-}
-
-if($paginas <= 0){
-    $imprimePaginacao = "Página 1 de 1";
+}else if($pg == $paginas){//Se estiver na ultima pagina
+    $menos = $pg -1;
+    $imprimePaginacao = ""
+            . "<li><a href='index.php?link=3&pg=$menos' class='ant'>Anterior</a></li>";
+          //Imprimir opcoes de paginas
+   for($i=0; $i<=$paginas; $i++){
+        $aux = $i + 1;
+        if($pg == $i){//Testa se a o pg e igual a I para saber se voce esta tentando acessar a mesma pagina onde voce esta
+            $imprimePaginacao.="<li><a>$aux</a></li>";
+        } else {
+        $imprimePaginacao .= "<li class='ativo'><a href='index.php?link=3&pg=$i'>$aux</a></li>";
+        }
+    }
+    $imprimePaginacao.=""
+            . "<li><a href='index.php?link=3&pg=0'>Primeira</a></li>";
 }
 ?>
 
