@@ -61,3 +61,4 @@ function paginacao($url, $paginas, $total_paginas, $pg) {
     }
     return $imprimePaginacao;
 }
+ 
