@@ -1,5 +1,6 @@
 <?php
 
+//Funcao responsavel pela paginacao do sistema
 function paginacao($url, $paginas, $total_paginas, $pg) {
     //Trabalhando as paginas
     //Verificar se a pagina e menor igual a 0. Se for ultimo o vai ser 0. Se nao, ultimo vai ser o numero de  paginas
@@ -59,6 +60,6 @@ function paginacao($url, $paginas, $total_paginas, $pg) {
         $imprimePaginacao.=""
                 . "<li><a href='$url&pg=0'>Primeira</a></li>";
     }
-    return $imprimePaginacao;
+    return $imprimePaginacao; //Retorna a paginacao
 }
  
