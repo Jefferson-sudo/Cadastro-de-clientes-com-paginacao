@@ -56,7 +56,7 @@ $inicio = $pg * $lpp;                   //Pega o inicio da pagina
                                 <td><?php echo $cliente["cidade"] ?></td>
 
                                 <td align="center">
-                                    <a href="<?php echo 'index.php?link=2&$acao=Editar&id=' . $cliente['id_cliente'] ?>" class="btn">Editar</a>
+                                    <a href="<?php echo 'index.php?link=2&acao=Editar&id=' . $cliente['id_cliente'] ?>" class="btn">Editar</a>
                                 </td>
                                 <?php
                             }
