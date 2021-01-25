@@ -1,6 +1,7 @@
 <?php
 require ("config/config.php");
 require ("config/crud.php");
+require ("config/biblio.php");
 ?>
 
 <html>
