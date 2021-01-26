@@ -38,12 +38,12 @@ CREATE TABLE `cliente` (
 --
 
 INSERT INTO `cliente` (`id_cliente`, `cliente`, `endereco`, `bairro`, `cidade`, `cep`, `fone`, `email`, `cpf`) VALUES
-(1, 'Geraldo Dias', 'Corrego das Palmeiras', 'Zona Rural', 'Abre-Campo', '35365000', '96676444', 'geraldo@email.com', '00000000000'),
-(2, 'Terezinha Lopes', 'Corrego das Palmeiras', 'Zona Rural', 'Abre-Campo', '35365000', '000000000', 'terezinha@email.com', '00000000000'),
+(1, 'Geraldo', 'Palmeiras', 'Zona Rural', 'Abre-Campo', '35365000', '96676444', 'geraldo@email.com', '00000000000'),
+(2, 'Terezinha', ' Palmeiras', 'Zona Rural', 'Abre-Campo', '35365000', '000000000', 'terezinha@email.com', '00000000000'),
 (3, 'Gislene Dias', 'Rua das Garças', 'Loteamento', 'Matipó', '35367000', '0000000', 'gislene@email.com', '00000000'),
 (4, 'Jean Monteiro', 'Rua Joaquim Bilin Quintão', 'Zona da Mata', 'Beo Honte', '3535353', '0000000', 'jean@email.email', '1366315931'),
-(5, 'Josimar da Silva Dias', 'Corrego das Palmeiras', 'Zona Rural', 'Abre-Campo', '35365000', '67900000', 'josimarAbreCampo@Josimar.net', '13663159361'),
-(6, 'Icaro Pereira ', 'Rua l 125', 'Loteamento do Celinho ', 'Raul ', '0000000', '000000000', 'icara@icaro.com.br.mg.mtp.lotcel.rl.125.2and', '00000000'),
+(5, 'Josimar', 'Corrego das Palmeiras', 'Zona Rural', 'Abre-Campo', '35365000', '67900000', 'josimarAbreCampo@Josimar.net', '13663159361'),
+(6, 'Icaro Pereira ', 'Rua Z 1053', 'Loteamento do Celinho ', 'Raul ', '0000000', '000000000', 'icara@icaro.com.br.mg.mtp.lotcel.rl.125.2and', '00000000'),
 (7, ' Mateus', 'Rua l 125', 'Loteamento celinho', 'Matipó', '35367000', '3131311', 'jefferson@gmail.com', '00000000000'),
 (8, ' Souza', 'Rua l 125', 'Loteamento do celinho', 'Matipó', '35367000', '999999999', 'elizabeth@email.com', '00000000000'),
 (9, 'Geraldo', 'Corrego das Palmeiras', 'Zona Rural', 'Abre-Campo', '35365000', '96676444', 'geraldo@email.com', '00000000000'),
@@ -55,10 +55,10 @@ INSERT INTO `cliente` (`id_cliente`, `cliente`, `endereco`, `bairro`, `cidade`, 
 (15, 'Geraldo Dias', 'Corrego das Palmeiras', 'Zona Rural', 'Abre-Campo', '35365000', '96676444', 'geraldo@email.com', '00000000000'),
 (16, 'Terezinha Lopes', 'Corrego das Palmeiras', 'Zona Rural', 'Abre-Campo', '35365000', '000000000', 'terezinha@email.com', '00000000000'),
 (17, 'Gislene Dias', 'Rua das Garças', 'Loteamento', 'Matipó', '35367000', '0000000', 'gislene@email.com', '00000000'),
-(18, 'Jean Monteiro', 'Rua Joaquim Bilin Quintão', 'Zona da Mata', 'Beo Honte', '3535353', '0000000', 'jean@email.email', '1366315931'),
-(19, 'Icaro Pereira ', 'Rua l 125', 'Loteamento do Celinho ', 'Raul ', '0000000', '000000000', 'icara@icaro.com.br.mg.mtp.lotcel.rl.125.2and', '00000000'),
-(20, ' Mateus', 'Rua l 125', 'Loteamento celinho', 'Matipó', '35367000', '3131311', 'jefferson@gmail.com', '00000000000'),
-(21, ' Souza', 'Rua l 125', 'Loteamento do celinho', 'Matipó', '35367000', '999999999', 'elizabeth@email.com', '00000000000'),
+(18, 'Monteiro', 'Rua Joaquim Bilin Quintão', 'Zona da Mata', 'Beo Honte', '3535353', '0000000', 'jean@email.email', '1366315931'),
+(19, 'Icaro Pereira ', 'Rua ', 'Loteamento do Celinho ', 'Raul ', '0000000', '000000000', 'icara@icaro.com.br.mg.mtp.lotcel.rl.125.2and', '00000000'),
+(20, ' Mateus', 'Rua G 125', 'Loteamento celinho', 'Matipó', '35367000', '3131311', 'jefferson@gmail.com', '00000000000'),
+(21, ' Souza', 'Rua l ', 'Loteamento do celinho', 'Matipó', '35367000', '999999999', 'elizabeth@email.com', '00000000000'),
 (22, 'Geraldo', 'Corrego das Palmeiras', 'Zona Rural', 'Abre-Campo', '35365000', '96676444', 'geraldo@email.com', '00000000000'),
 (23, 'Lopes', 'Corrego das Palmeiras', 'Zona Rural', 'Abre-Campo', '35365000', '000000000', 'terezinha@email.com', '00000000000');
 
