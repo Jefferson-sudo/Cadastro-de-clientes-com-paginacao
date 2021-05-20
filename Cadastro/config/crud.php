@@ -53,10 +53,10 @@ function selecionar($comandosql) {
 function insertData($tabela, array $dados, $id = false) {
     openConection();
     //Pega as chaves do array. $Campos vai receber as colunas ta tabela
-    $campos = "`". implode("`,`", array_keys($dados))."`"; //Implode: junta elementos de uma matriz em uma string e etorna uma string contendo os elementos da matriz na mesma ordem com uma ligação (no caso a virgula), entre cada elemento.
+    $campos  = "`". implode("`,`", array_keys($dados))."`"; //Implode: junta elementos de uma matriz em uma string e etorna uma string contendo os elementos da matriz na mesma ordem com uma ligação (no caso a virgula), entre cada elemento.
     //Pega os valores do array. $Valores vai receber os valores que vão ser inseridos em cada coluna
     $valores = "'" . implode("','", $dados) . "'"; 
-    $sql = "INSERT INTO `$tabela`({$campos}) VALUES ({$valores})";
+    $sql     = "INSERT INTO `$tabela`({$campos}) VALUES ({$valores})";
    
     $qry = runsql($sql);
     return $qry;
@@ -71,8 +71,8 @@ function updateData($tabela, array $dados, $condicao) {
         $campos[] = "{$chave}` = '{$valor}' ";
     }
     $campos =  implode(",`", $campos);
-    $sql = "UPDATE `$tabela` SET `{$campos} WHERE `$tabela`.`{$condicao}  ";
-    $qry = runsql($sql);
+    $sql    = "UPDATE `$tabela` SET `{$campos} WHERE `$tabela`.`{$condicao}  ";
+    $qry    = runsql($sql);
 
     return $qry;
 }
